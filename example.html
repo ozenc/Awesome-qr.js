@@ -1,7 +1,7 @@
 <script src="dist/awesome-qr.js"></script>
 <body>
   <input type="file" onchange="previewFile()"><br>
-  <img  src="" height="200" alt="Image preview...">
+  <img  id="qrcode" src="" height="200" alt="Image preview...">
 <script>
 
 var background;
@@ -14,9 +14,20 @@ reader.onload = function () {
   background = this.result;
 
   new AwesomeQR.AwesomeQR({
-    text: "AwesomeQR by Makito - Awesome, right now.",
-    size: 500,
+    text: "this is working example",
+    size: 800,
     backgroundImage: background,
+    backgroundDimming: "rgba(0, 0, 0, 0)",
+    dotScale: 0.4,
+    protectors: false,
+    colorDark:"#000000",
+    colorLight:"#ffffff",
+    autoColor: false,
+    correctLevel: 2,
+    margin:5,
+      data: {
+    scale: 20,
+  },
   }).draw().then((dataURL) => preview.src = dataURL );
 };
 
